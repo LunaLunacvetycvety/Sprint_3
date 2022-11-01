@@ -54,4 +54,3 @@ sauces_button = '//*[@id="root"]/div/main/section[1]/div[1]/div[2]'
 
 # Кнопка Начинки
 filling_button = '//*[@id="root"]/div/main/section[1]/div[1]/div[3]'
-

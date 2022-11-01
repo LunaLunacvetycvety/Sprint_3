@@ -45,4 +45,3 @@ def registered_user(random_email, random_password, driver):
     driver.find_element(By.XPATH, locators.reg_password_input).send_keys(random_password)
     driver.find_element(By.XPATH, locators.reg_submit_button).click()
     return {'email': random_email, 'password': random_password}
-
