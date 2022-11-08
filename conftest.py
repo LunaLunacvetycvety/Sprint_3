@@ -2,11 +2,9 @@ import random
 import time
 import pytest
 from selenium import webdriver
-from selenium.webdriver.common.by import By
-import locators
 
 url = 'https://stellarburgers.nomoreparties.site/'
-
+login_url = url + 'login'
 
 @pytest.fixture
 def driver():
@@ -17,10 +15,10 @@ def driver():
 
 
 @pytest.fixture
-def random_password(request):
-    symbols = '+-/*!&$#?=@<>abcdefghijklnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
+def random_password():
+    symbols = 'abcdefghijklnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
     password = ''
-    for i in range(request.param):
+    for i in range(8):
         password += random.choice(symbols)
     return password
 
@@ -35,13 +33,3 @@ def random_email():
         email += random.choice(letters)
     return email + str(time_stamp) + "@gmail.com"
 
-
-@pytest.fixture
-def registered_user(random_email, random_password, driver):
-    driver.find_element(By.LINK_TEXT, locators.account_button).click()
-    driver.find_element(By.LINK_TEXT, locators.reg_link).click()
-    driver.find_element(By.XPATH, locators.reg_name_input).send_keys('Василий')
-    driver.find_element(By.XPATH, locators.reg_email_input).send_keys(random_email)
-    driver.find_element(By.XPATH, locators.reg_password_input).send_keys(random_password)
-    driver.find_element(By.XPATH, locators.reg_submit_button).click()
-    return {'email': random_email, 'password': random_password}

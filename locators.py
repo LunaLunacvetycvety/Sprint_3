@@ -54,3 +54,12 @@ sauces_button = '//*[@id="root"]/div/main/section[1]/div[1]/div[2]'
 
 # Кнопка Начинки
 filling_button = '//*[@id="root"]/div/main/section[1]/div[1]/div[3]'
+
+# Заголовок Булки
+breads_h = '//*[@id="root"]/div/main/section[1]/div[2]/h2[1]'
+
+# Заголовок Соусы
+sauces_h = '//*[@id="root"]/div/main/section[1]/div[2]/h2[2]'
+
+# Заголовок Начинки
+filling_h= '//*[@id="root"]/div/main/section[1]/div[2]/h2[3]'
